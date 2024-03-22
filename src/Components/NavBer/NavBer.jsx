@@ -13,7 +13,7 @@ const NavBer = () => {
   ];
 
   return (
-    <nav>
+    <nav className="text-black">
       <div className="md:hidden" onClick={() => setOpen(!open)}>
         {open === true ? (
           <MdRestaurantMenu className="text-2xl"></MdRestaurantMenu>
@@ -21,7 +21,11 @@ const NavBer = () => {
           <BsFillMenuButtonFill className="text-2xl "></BsFillMenuButtonFill>
         )}
       </div>
-      <ul className="md:flex">
+      <ul
+        className={`md:flex absolute md:static duration-1000
+      ${open ? 'top-12' : '-top-60'}
+      bg-yellow-300 px-6 shadow-lg`}
+      >
         {routes.map(route => (
           <Link key={route.id} route={route}></Link>
         ))}
